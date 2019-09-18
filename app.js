@@ -7,12 +7,14 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
-const PORT = process.env.PORT;
+let devEnv = false;
+
+const PORT = devEnv ? 5000 : process.env.PORT;
 
 app.use(express.static(path.join(__dirname, './public')));
 
 app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public/index.html'));
+    res.sendFile(path.join(__dirname, 'public/butterfly.jpg'));
 });
 
 app.listen(PORT, () => {
