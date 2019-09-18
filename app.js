@@ -7,7 +7,7 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
-const PORT = 5000 || process.env.PORT;
+const PORT = process.env.PORT;
 
 app.use(express.static(path.join(__dirname, './public')));
 
